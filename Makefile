@@ -13,8 +13,12 @@ CC		= gcc
 RM		= rm -f
 MKDIR	= mkdir
 ZIP		= zip
+MV		= mv
 
 CFLAGS	= -Wall -Wextra -Werror
+
+ZIPNAME	= \[06\]push_swap
+DISTANT	= /Volumes/Clémentine/19/
 
 $(OBJDIR)%.o:	%.c
 				$(CC) $(CFLAGS) -c $< -o $(addprefix $(OBJDIR), $(<:.c=.o))
@@ -42,6 +46,9 @@ fclean:			clean
 re:				fclean all
 
 zip:			fclean
-				$(ZIP) \[06\]push_swap $(wildcard ./*)
+				$(ZIP) $(ZIPNAME) $(wildcard ./*)
+
+xport:			zip
+				$(MV) $(ZIPNAME).zip $(DISTANT)
 
 .PHONY:			all clean fclean re zip

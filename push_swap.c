@@ -2,18 +2,21 @@
 
 int	main(int argc, char **argv)
 {
-	int	a[argc - 1];
-//	int	b[argc - 1];
+	int	*a;
+	int	*b;
 	int	i;
 
-	i = argc - 1;
-	while (i)
+	(void)b;
+	i = 1;
+	a = malloc(sizeof(int) + (argc - 1));
+	while (i < argc)
 	{
-		a[i] = ft_atoi(argv[i]);
-		i--;
+		a[i - 1] = ft_atoi(argv[i]);
+		i++;
 	}
-	i = argc - 1;
-	while (i)
-		printf("%d\n", a[i--]);
+	i = 0;
+	a = ft_rrotate(a);
+	while (i < (argc - 1))
+		printf("%d\n", a[i++]);
 	return (0);
 }
