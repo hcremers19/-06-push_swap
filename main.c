@@ -6,7 +6,7 @@
 /*   By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:40:56 by hcremers          #+#    #+#             */
-/*   Updated: 2022/03/01 15:30:16 by hcremers         ###   ########.fr       */
+/*   Updated: 2022/03/01 15:54:39 by hcremers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@ int	main(int argc, char **argv)
 		tabs->a[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
-	pb(tabs);
-	pb(tabs);
-	pb(tabs);
 	i = tabs->alen - 1;
+	/*Debug*/
 	while (i >= 0)
 	{
 		printf("tabs->a[%d] = %d\n", i, tabs->a[i]);
@@ -43,6 +41,7 @@ int	main(int argc, char **argv)
 		printf("tabs->b[%d] = %d\n", i, tabs->b[i]);
 		i--;
 	}
+	/*End of debug*/
 	free(tabs->a);
 	free(tabs->b);
 	free(tabs);
