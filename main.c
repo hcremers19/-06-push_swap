@@ -6,7 +6,7 @@
 /*   By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:40:56 by hcremers          #+#    #+#             */
-/*   Updated: 2022/03/01 15:54:39 by hcremers         ###   ########.fr       */
+/*   Updated: 2022/03/01 18:54:35 by hcremers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ int	main(int argc, char **argv)
 		tabs->a[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
-	i = tabs->alen - 1;
+	radix_sort(tabs);
 	/*Debug*/
+	i = tabs->alen - 1;
 	while (i >= 0)
 	{
 		printf("tabs->a[%d] = %d\n", i, tabs->a[i]);
