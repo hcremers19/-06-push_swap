@@ -5,62 +5,46 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/23 16:37:09 by hcremers          #+#    #+#              #
-#    Updated: 2022/02/23 16:54:11 by hcremers         ###   ########.fr        #
+#    Created: 2022/02/23 16:55:17 by hcremers          #+#    #+#              #
+#    Updated: 2022/02/23 16:55:19 by hcremers         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= push_swap
-ZIPNAME	= \[06\]push_swap.zip
+NAME	= libutils.a
 
-SRC		= main.c \
+SRCS	= $(wildcard *.c)
 
-OBJ		= $(addprefix $(OBJDIR), $(SRC:.c=.o))
+OBJS	= $(addprefix $(OBJDIR), $(SRCS:.c=.o))
 OBJDIR	= objs/
-
-LIB		= srcs/libutils.a
-
-DISTANT	= /Volumes/Clémentine/19/
-
-CFLAGS	= -Wall -Wextra -Werror
 
 CC		= gcc
 RM		= rm -f
 MKDIR	= mkdir
-ZIP		= zip
-MV		= mv
+
+CFLAGS	= -Wall -Wextra -Werror
 
 ###############################################################################
 
 $(OBJDIR)%.o:	%.c
 				$(CC) $(CFLAGS) -c $< -o $(addprefix $(OBJDIR), $(<:.c=.o))
 
-all:			$(NAME)
+all:			${NAME}
 
-$(NAME):		$(OBJ)
-				make -C srcs/
-				$(CC) $(CFLAGS) $(OBJ) $(LIB) -o $(NAME)
+$(NAME):		$(OBJS)
+				ar rcs ${NAME} $(OBJS)
+				ranlib ${NAME}
 
-$(OBJ):			| $(OBJDIR)
+$(OBJS):		| $(OBJDIR)
 
 $(OBJDIR):
 				$(MKDIR) $(OBJDIR)
-
 clean:
-				make clean -C srcs/
 				$(RM) $(wildcard *.o)
 				$(RM) -r $(OBJDIR)
 
 fclean:			clean
-				make fclean -C srcs/
-				$(RM) $(NAME)
+				${RM} ${NAME}
 
 re:				fclean all
 
-zip:			fclean
-				$(ZIP) $(ZIPNAME) $(wildcard ./*)
-
-xport:			zip
-				$(MV) $(ZIPNAME) $(DISTANT)
-
-.PHONY:			all clean fclean re zip
+.PHONY:			all clean fclean re bonus
