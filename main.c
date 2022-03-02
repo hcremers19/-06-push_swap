@@ -6,7 +6,7 @@
 /*   By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:40:56 by hcremers          #+#    #+#             */
-/*   Updated: 2022/03/01 18:54:35 by hcremers         ###   ########.fr       */
+/*   Updated: 2022/03/02 12:25:16 by hcremers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, char **argv)
 	tabs->blen = 0;
 	tabs->a = (int *)malloc(sizeof(int) * (tabs->alen));
 	tabs->b = (int *)malloc(sizeof(int) * (tabs->alen));
+	tabs->moves_nbr = 0;
 	while (i < tabs->alen)
 	{
 		tabs->a[i] = ft_atoi(argv[i + 1]);
@@ -42,6 +43,7 @@ int	main(int argc, char **argv)
 		printf("tabs->b[%d] = %d\n", i, tabs->b[i]);
 		i--;
 	}
+	printf("Number of moves: %d\n", tabs->moves_nbr);
 	/*End of debug*/
 	free(tabs->a);
 	free(tabs->b);

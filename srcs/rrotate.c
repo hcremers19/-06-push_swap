@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   rrotate.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 17:08:46 by hcremers          #+#    #+#             */
-/*   Updated: 2022/03/01 15:19:44 by hcremers         ###   ########.fr       */
+/*   Updated: 2022/03/02 12:19:50 by hcremers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	rra(t_tab *tabs)
 		i++;
 	}
 	tabs->a[i] = temp;
+	ft_putstr_fd("rra\n", 1);
+	tabs->moves_nbr++;
 }
 
 void	rrb(t_tab *tabs)
@@ -40,10 +42,13 @@ void	rrb(t_tab *tabs)
 		i++;
 	}
 	tabs->b[i] = temp;
+	ft_putstr_fd("rrb\n", 1);
+	tabs->moves_nbr++;
 }
 
 void	rrr(t_tab *tabs)
 {
 	rra(tabs);
 	rrb(tabs);
+	tabs->moves_nbr--;
 }

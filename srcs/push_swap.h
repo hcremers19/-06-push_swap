@@ -6,7 +6,7 @@
 /*   By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:41:17 by hcremers          #+#    #+#             */
-/*   Updated: 2022/03/01 19:11:51 by hcremers         ###   ########.fr       */
+/*   Updated: 2022/03/02 12:16:47 by hcremers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_tab
 	int	*b;
 	int	alen;
 	int	blen;
+	int	moves_nbr;
 }	t_tab;
 
 void	sa(t_tab *tabs);
