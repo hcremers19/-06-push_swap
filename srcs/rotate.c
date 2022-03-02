@@ -6,7 +6,7 @@
 /*   By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 13:38:08 by hcremers          #+#    #+#             */
-/*   Updated: 2022/03/02 12:24:07 by hcremers         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:07:21 by hcremers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ra(t_tab *tabs)
 	}
 	tabs->a[0] = temp;
 	ft_putstr_fd("ra\n", 1);
-	tabs->moves_nbr++;
+	tabs->moves++;
 }
 
 void	rb(t_tab *tabs)
@@ -43,12 +43,12 @@ void	rb(t_tab *tabs)
 	}
 	tabs->b[0] = temp;
 	ft_putstr_fd("rb\n", 1);
-	tabs->moves_nbr++;
+	tabs->moves++;
 }
 
 void	rr(t_tab *tabs)
 {
 	ra(tabs);
 	rb(tabs);
-	tabs->moves_nbr--;
+	tabs->moves--;
 }
