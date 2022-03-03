@@ -6,33 +6,25 @@
 /*   By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:54:53 by hcremers          #+#    #+#             */
-/*   Updated: 2022/03/03 13:47:12 by hcremers         ###   ########.fr       */
+/*   Updated: 2022/03/03 13:55:51 by hcremers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_t(t_tab *tabs)	// À retester pour être sûr de ne pas sortir du tableau
+int	bitmax(t_tab *tabs)
 {
-	int	temp;
-	int	i;
+	int	bits;
+	int	a_max;
 
-	temp = 0;
-	i = 0;
-	while (i < tabs->tlen - 1)
+	bits = 1;
+	a_max = tabs->alen - 1;
+	while (a_max > 1)
 	{
-		if (tabs->t[i] > tabs->t[i + 1])
-		{
-			temp = tabs->t[i];
-			tabs->t[i] = tabs->t[i + 1];
-			tabs->t[i + 1] = temp;
-			i = 0;
-		}
-		else
-		{
-			i++;
-		}
+		a_max /= 2;
+		bits++;
 	}
+	return (bits);
 }
 
 void	convert_nbrs(t_tab *tabs)
@@ -57,19 +49,27 @@ void	convert_nbrs(t_tab *tabs)
 	}
 }
 
-int	bitmax(t_tab *tabs)
+void	sort_t(t_tab *tabs)	// À retester pour être sûr de ne pas sortir du tableau
 {
-	int	bits;
-	int	a_max;
+	int	temp;
+	int	i;
 
-	bits = 1;
-	a_max = tabs->alen - 1;
-	while (a_max > 1)
+	temp = 0;
+	i = 0;
+	while (i < tabs->tlen - 1)
 	{
-		a_max /= 2;
-		bits++;
+		if (tabs->t[i] > tabs->t[i + 1])
+		{
+			temp = tabs->t[i];
+			tabs->t[i] = tabs->t[i + 1];
+			tabs->t[i + 1] = temp;
+			i = 0;
+		}
+		else
+		{
+			i++;
+		}
 	}
-	return (bits);
 }
 
 void	radix_sort(t_tab *tabs)
