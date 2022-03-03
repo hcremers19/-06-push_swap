@@ -6,51 +6,58 @@
 /*   By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:54:53 by hcremers          #+#    #+#             */
-/*   Updated: 2022/03/02 18:07:40 by hcremers         ###   ########.fr       */
+/*   Updated: 2022/03/03 13:47:12 by hcremers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void convert_nbrs(t_tab *tabs)
+void	sort_t(t_tab *tabs)	// À retester pour être sûr de ne pas sortir du tableau
 {
-	int	index;
-	int	place;
+	int	temp;
+	int	i;
 
-	place = 0;
-	while (place < tabs->alen - 1)
+	temp = 0;
+	i = 0;
+	while (i < tabs->tlen - 1)
 	{
-		index = 0;
-		while (index < tabs->alen - 1)
+		if (tabs->t[i] > tabs->t[i + 1])
 		{
-			
+			temp = tabs->t[i];
+			tabs->t[i] = tabs->t[i + 1];
+			tabs->t[i + 1] = temp;
+			i = 0;
+		}
+		else
+		{
+			i++;
 		}
 	}
 }
 
-// void	init_a(t_tab *tabs)
-// {
-// 	int	a_index;
-// 	int	t_index;
+void	convert_nbrs(t_tab *tabs)
+{
+	int	a_index;
+	int	t_index;
 
-// 	a_index = 0;
-// 	while (a_index < tabs->tlen)
-// 	{
-// 		t_index = 0;
-// 		while (t_index < tabs->tlen)
-// 		{
-// 			if (tabs->t[t_index] == tabs->a[a_index])
-// 			{
-// 				tabs->a[a_index] = t_index;
-// 				break ;
-// 			}
-// 			t_index++;
-// 		}
-// 		a_index++;
-// 	}
-// }
+	a_index = 0;
+	while (a_index < tabs->alen)
+	{
+		t_index = 0;
+		while (t_index < tabs->tlen)
+		{
+			if (tabs->t[t_index] == tabs->a[a_index])
+			{
+				tabs->a[a_index] = t_index;
+				break ;
+			}
+			t_index++;
+		}
+		a_index++;
+	}
+}
 
-int	bits_nbr(t_tab *tabs)
+int	bitmax(t_tab *tabs)
 {
 	int	bits;
 	int	a_max;
@@ -69,14 +76,14 @@ void	radix_sort(t_tab *tabs)
 {
 	int	bit;
 	int	turn;
-	int	const_alen;
 
-	const_alen = tabs->alen;
+	sort_t(tabs);
+	convert_nbrs(tabs);
 	bit = 0;
-	while (bit < 32)
+	while (bit < bitmax(tabs))
 	{
 		turn = 0;
-		while (turn < const_alen)
+		while (turn < tabs->tlen)
 		{
 			if ((((tabs->a[tabs->alen - 1] >> bit) & 1) % 2) == 1)
 				pb(tabs);
