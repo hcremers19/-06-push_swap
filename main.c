@@ -6,7 +6,7 @@
 /*   By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:40:56 by hcremers          #+#    #+#             */
-/*   Updated: 2022/03/03 16:51:11 by hcremers         ###   ########.fr       */
+/*   Updated: 2022/03/07 19:11:19 by hcremers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,18 @@ int	main(int argc, char **argv)
 	tabs = (t_tab *)malloc(sizeof(t_tab));
 	init_values(tabs, argc);
 	convert_args(tabs, argv);
-	radix_sort(tabs);
-	debug(tabs);										// À supprimer
+	if (argc == 2);
+	else if (argc == 3)
+		sort_two(tabs);
+	else if (argc == 4)
+		sort_three(tabs);
+	else if (argc == 5)
+		sort_four(tabs);
+	else if (argc == 6)
+		sort_five(tabs);
+	else
+		radix_sort(tabs);
+	// debug(tabs);										// À supprimer
 	free_all(tabs);
 	return (0);
 }

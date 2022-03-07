@@ -6,7 +6,7 @@
 /*   By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:54:53 by hcremers          #+#    #+#             */
-/*   Updated: 2022/03/03 13:55:51 by hcremers         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:39:42 by hcremers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,13 @@ void	radix_sort(t_tab *tabs)
 		while (turn < tabs->tlen)
 		{
 			if ((((tabs->a[tabs->alen - 1] >> bit) & 1) % 2) == 1)
-				pb(tabs);
+				push_b(tabs);
 			else
 				ra(tabs);
 			turn++;
 		}
 		while (tabs->blen)
-			pa(tabs);
+			push_a(tabs);
 		bit++;
 	}
 }

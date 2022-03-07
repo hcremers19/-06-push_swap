@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rrotate.c                                          :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/28 17:08:46 by hcremers          #+#    #+#             */
-/*   Updated: 2022/03/02 14:07:24 by hcremers         ###   ########.fr       */
+/*   Created: 2022/03/01 13:38:08 by hcremers          #+#    #+#             */
+/*   Updated: 2022/03/07 15:49:47 by hcremers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void	rra(t_tab *tabs)
 	int	temp;
 	int	i;
 
-	i = 0;
-	temp = tabs->a[0];
-	while (i < (tabs->alen - 1))
+	i = tabs->alen - 1;
+	temp = tabs->a[i];
+	while (i > 0)
 	{
-		tabs->a[i] = tabs->a[i + 1];
-		i++;
+		tabs->a[i] = tabs->a[i - 1];
+		i--;
 	}
-	tabs->a[i] = temp;
+	tabs->a[0] = temp;
 	ft_putstr_fd("rra\n", 1);
 	tabs->moves++;
 }
@@ -34,14 +34,14 @@ void	rrb(t_tab *tabs)
 	int	temp;
 	int	i;
 
-	i = 0;
-	temp = tabs->b[0];
-	while (i < (tabs->alen - 1))
+	i = tabs->alen - 1;
+	temp = tabs->b[i];
+	while (i > 0)
 	{
-		tabs->b[i] = tabs->b[i + 1];
-		i++;
+		tabs->b[i] = tabs->b[i - 1];
+		i--;
 	}
-	tabs->b[i] = temp;
+	tabs->b[0] = temp;
 	ft_putstr_fd("rrb\n", 1);
 	tabs->moves++;
 }
