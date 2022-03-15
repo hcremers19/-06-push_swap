@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   radix_sort.c                                       :+:      :+:    :+:   */
+/*   ps_radix_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:54:53 by hcremers          #+#    #+#             */
-/*   Updated: 2022/03/07 14:39:42 by hcremers         ###   ########.fr       */
+/*   Updated: 2022/03/15 17:36:03 by hcremers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	convert_nbrs(t_tab *tabs)
 	}
 }
 
-void	sort_t(t_tab *tabs)	// À retester pour être sûr de ne pas sortir du tableau
+void	sort_t(t_tab *tabs)
 {
 	int	temp;
 	int	i;
@@ -66,9 +66,7 @@ void	sort_t(t_tab *tabs)	// À retester pour être sûr de ne pas sortir du tabl
 			i = 0;
 		}
 		else
-		{
 			i++;
-		}
 	}
 }
 
@@ -85,14 +83,14 @@ void	radix_sort(t_tab *tabs)
 		turn = 0;
 		while (turn < tabs->tlen)
 		{
-			if ((((tabs->a[tabs->alen - 1] >> bit) & 1) % 2) == 1)
-				push_b(tabs);
+			if ((((tabs->a[0] >> bit) & 1) % 2) == 0)
+				pb(tabs);
 			else
-				ra(tabs);
+				ra(tabs, 1);
 			turn++;
 		}
 		while (tabs->blen)
-			push_a(tabs);
+			pa(tabs);
 		bit++;
 	}
 }

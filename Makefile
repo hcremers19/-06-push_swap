@@ -6,7 +6,7 @@
 #    By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/23 16:37:09 by hcremers          #+#    #+#              #
-#    Updated: 2022/02/23 16:54:11 by hcremers         ###   ########.fr        #
+#    Updated: 2022/03/15 18:03:27 by hcremers         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC		= main.c \
 OBJ		= $(addprefix $(OBJDIR), $(SRC:.c=.o))
 OBJDIR	= objs/
 
-LIB		= srcs/libutils.a
+LIB		= srcs/libsrcs.a
 
 DISTANT	= /Volumes/Clémentine/19/
 
