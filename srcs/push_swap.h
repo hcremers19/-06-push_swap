@@ -6,7 +6,7 @@
 /*   By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:41:17 by hcremers          #+#    #+#             */
-/*   Updated: 2022/03/15 18:01:16 by hcremers         ###   ########.fr       */
+/*   Updated: 2022/03/17 12:34:09 by hcremers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
-// # include "../.wraloc/wraloc.h"
 
 typedef struct s_tab
 {

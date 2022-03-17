@@ -6,7 +6,7 @@
 /*   By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:34:21 by hcremers          #+#    #+#             */
-/*   Updated: 2022/03/15 17:10:59 by hcremers         ###   ########.fr       */
+/*   Updated: 2022/03/17 12:33:52 by hcremers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,9 @@ int	errors(t_tab *tabs, int all)
 		free_several(tabs, 3);
 	else if (all == 0)
 		free_several(tabs, 0);
-	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd("Error\n", 2);
 	return (1);
 }
-
-// void	free_all(t_tab *tabs)
-// {
-// 	free(tabs->t);
-// 	free(tabs->a);
-// 	free(tabs->b);
-// 	free(tabs);
-// }
 
 int	free_several(t_tab *tabs, int nbr)
 {
