@@ -6,12 +6,11 @@
 #    By: hcremers <hcremers@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/23 16:37:09 by hcremers          #+#    #+#              #
-#    Updated: 2022/03/15 18:03:27 by hcremers         ###   ########.fr        #
+#    Updated: 2022/11/10 11:37:37 by hcremers         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= push_swap
-ZIPNAME	= \[06\]push_swap.zip
 
 SRC		= main.c \
 
@@ -20,15 +19,11 @@ OBJDIR	= objs/
 
 LIB		= srcs/libsrcs.a
 
-DISTANT	= /Volumes/Clémentine/19/
-
 CFLAGS	= -Wall -Wextra -Werror
 
 CC		= gcc
 RM		= rm -f
 MKDIR	= mkdir
-ZIP		= zip
-MV		= mv
 
 ###############################################################################
 
@@ -57,10 +52,4 @@ fclean:			clean
 
 re:				fclean all
 
-zip:			fclean
-				$(ZIP) $(ZIPNAME) $(wildcard ./*)
-
-xport:			zip
-				$(MV) $(ZIPNAME) $(DISTANT)
-
-.PHONY:			all clean fclean re zip
+.PHONY:			all clean fclean re 
